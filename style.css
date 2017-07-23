@@ -16,6 +16,10 @@
   border-top: none;
 }
 
+body {
+  background-color: #FAFAFA;
+}
+
 .table {
   box-shadow: 10px 10px 10px #DDD;
   width: calc(100% - 40px);
@@ -27,6 +31,7 @@
   font-family: dot-matrix;
   font-size: 1.5em;
   margin-bottom: 5%;
+  box-shadow: 8px 8px 8px #888;
 }
 
 .portfolio-line {
