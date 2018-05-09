@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+
+
+  <title>I Will Always Love You</title>
+
+  <style>
+
+    * {
+      font-family: 'Courgette', cursive;
+    }
+
+    body {
+      background: linear-gradient(#FF3B70, #CC2F5A);
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .header {
+      max-width: 1150px;
+      margin-top: 120px;
+      position: relative;
+      left: 50vw;
+      transform: translateX(-50%);
+      background-color: #FF88A833;
+      background-repeat: no-repeat;
+      padding: 40px;
+      border-radius: 10px;
+    }
+
+    .header div {
+      margin: 20px 0;
+      font-size: 24px;
+    }
+
+    .thought {
+      font-size: 28px;
+    }
+
+    .body {
+      width: 100%;
+      max-width: 900px;
+      position: relative;
+      left: 50vw;
+      transform: translateX(-50%);
+    }
+
+
+    .thought {
+      height: 100px;
+      width: 100%;
+      text-align: center;
+      background-color: #FF88A833;
+      padding-top: 40px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    .reload {
+      width: 50%;
+      max-width: 300px;
+      height: 80px;
+      background-color: #7F1D38;
+      cursor: pointer;
+      margin: 0 auto;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      transition: box-shadow 0.2s ease-out;
+    }
+
+    .reload:hover {
+      box-shadow: 3px 3px 10px #7F1D38;
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        margin-top: 50px;
+        width: 100vw;
+        padding: 0 30px;
+      }
+
+      .header div {
+        font-size: 18px;
+      }
+
+      .thought {
+        font-size: 22px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <section class="header">
+    <div>To the most amazing woman I know: Your kindness, patience, generosity and love knows no bounds. You've taught me so much about myself, life, and becoming the person I need to be to achieve my dreams. For that, I will forever be in your debt.</div>
+    <div>I may not be a naturally romantic person, but I know how to express myself when it matters. I love you, and will always love you. Through thick and thin, there hasn't been a time where I haven't wanted to give you everything you've wanted, and then some.</div>
+    <div>This page serve as a permanent reminder and reassurance that I am, and always will be, dedicated to you. Wholeheartedly. Consider this a living document: as time goes on, events will be reflected here to ensure moments of our lives will stand the test of time. There will always be hardships, frustrations, and disappointments, but you will never see me walking away or giving up.</div>
+  </section>
+
+  <section class="body">
+    <div class="thought"></div>
+    <div class="reload"></div>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script>
+
+    $('.reload').on('click', function() {
+      var thoughts = [
+        'Nothing lights up my day like your smile',
+        'Every good day starts with waking up next to you',
+        'I love being creative with you at paint nights',
+        'You\'re the most amazing cook I know',
+        'I still think about the first times we spent together',
+        'I aspire to have your natural talent and perserverence',
+        'I love your caring nature',
+        ''
+      ]
+
+      var thought = thoughts[Math.floor(Math.random() * thoughts.length)];
+
+      $('.thought').text(thought);
+    });
+
+    $('.reload').click();
+
+  </script>
+</body>
+
+</html>
