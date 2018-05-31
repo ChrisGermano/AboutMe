@@ -28,6 +28,7 @@ li {
   font-weight: 800;
   letter-spacing: 1px;
   transition: color .1s linear;
+  z-index: 9;
 }
 
 ul:hover li {

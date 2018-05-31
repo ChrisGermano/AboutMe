@@ -9,6 +9,7 @@ $('.list-link').on({
     $('[data-'+cat+']').addClass('active');
   },
   mouseleave: function() {
+    $('.list-link').removeClass('active');
     $('.background').removeClass('active');
   },
   tap: function() {
@@ -19,9 +20,8 @@ $('.list-link').on({
 
     $('.background').removeClass('active');
     $('[data-'+cat+']').addClass('active');
+  },
+  click: function() {
+    window.location = $(this).data().url;
   }
 })
-
-$('.background.active').on('tap, touchstart, touchend',function() {
-  alert($(this).parent().data());
-});
