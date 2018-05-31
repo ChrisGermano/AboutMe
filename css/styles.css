@@ -42,16 +42,16 @@ ul:hover .list-link:hover {
   cursor: pointer;
 }
 
-ul:hover li[data-target="codepen"]:hover {
-  color: #3AB2FD;
+ul:hover li[data-target]:not(:hover) {
+  color: #FFF;
+}
+
+ul:hover li[data-target="linkedin"]:hover {
+  color: #2C6AB2;
   text-shadow: 1px 1px #FFF,
                1px -1px #FFF,
                -1px 1px #FFF,
                -1px -1px #FFF;
-}
-
-ul:hover li[data-target="codepen"]:not(:hover) {
-  color: #FFF;
 }
 
 ul:hover li[data-target="github"]:hover {
@@ -62,20 +62,12 @@ ul:hover li[data-target="github"]:hover {
                -1px -1px #FFF;
 }
 
-ul:hover li[data-target="github"]:not(:hover) {
-  color: #FFF;
-}
-
 ul:hover li[data-target="email"]:hover {
   color: #D63E3A;
   text-shadow: 1px 1px #FFF,
                1px -1px #FFF,
                -1px 1px #FFF,
                -1px -1px #FFF;
-}
-
-ul:hover li[data-target="email"]:not(:hover) {
-  color: #FFF;
 }
 
 ul:hover li[data-target="twitter"]:hover {
@@ -86,10 +78,6 @@ ul:hover li[data-target="twitter"]:hover {
                -1px -1px #FFF;
 }
 
-ul:hover li[data-target="twitter"]:not(:hover) {
-  color: #FFF;
-}
-
 ul:hover li[data-target="steemit"]:hover {
   color: #00E0AA;
   text-shadow: 1px 1px #FFF,
@@ -97,11 +85,6 @@ ul:hover li[data-target="steemit"]:hover {
                -1px 1px #FFF,
                -1px -1px #FFF;
 }
-
-ul:hover li[data-target="steemit"]:not(:hover) {
-  color: #FFF;
-}
-
 
 .background {
   height: 100vh;
@@ -117,7 +100,7 @@ ul:hover li[data-target="steemit"]:not(:hover) {
   left: 0;
 }
 
-.background[data-codepen] {
+.background[data-linkedin] {
   background-color: #3AB2FD;
 }
 
