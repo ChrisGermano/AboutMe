@@ -1,0 +1,147 @@
+body {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+}
+
+.nameWrapper {
+  position: relative;
+  width: 100vw;
+  z-index: 9;
+}
+
+ul {
+  left: 50vw;
+  list-style: none;
+  padding: 0;
+  position: fixed;
+  top: 40vh;
+  transform: translate(-50%, -50%);
+}
+
+li {
+  display: block;
+  float: left;
+  font-family: 'Comfortaa', cursive;
+  font-size: 8em;
+  font-weight: 800;
+  letter-spacing: 1px;
+  transition: color .1s linear;
+}
+
+ul:hover li {
+  color: #DDD;
+}
+
+ul:hover li:hover {
+  color: #222;
+}
+
+ul:hover .list-link:hover {
+  cursor: pointer;
+}
+
+ul:hover li[data-target="codepen"]:hover {
+  color: #3AB2FD;
+  text-shadow: 1px 1px #FFF,
+               1px -1px #FFF,
+               -1px 1px #FFF,
+               -1px -1px #FFF;
+}
+
+ul:hover li[data-target="codepen"]:not(:hover) {
+  color: #FFF;
+}
+
+ul:hover li[data-target="github"]:hover {
+  color: #55BE7F;
+  text-shadow: 1px 1px #FFF,
+               1px -1px #FFF,
+               -1px 1px #FFF,
+               -1px -1px #FFF;
+}
+
+ul:hover li[data-target="github"]:not(:hover) {
+  color: #FFF;
+}
+
+ul:hover li[data-target="email"]:hover {
+  color: #D63E3A;
+  text-shadow: 1px 1px #FFF,
+               1px -1px #FFF,
+               -1px 1px #FFF,
+               -1px -1px #FFF;
+}
+
+ul:hover li[data-target="email"]:not(:hover) {
+  color: #FFF;
+}
+
+ul:hover li[data-target="twitter"]:hover {
+  color: #3F96C0;
+  text-shadow: 1px 1px #FFF,
+               1px -1px #FFF,
+               -1px 1px #FFF,
+               -1px -1px #FFF;
+}
+
+ul:hover li[data-target="twitter"]:not(:hover) {
+  color: #FFF;
+}
+
+ul:hover li[data-target="steemit"]:hover {
+  color: #00E0AA;
+  text-shadow: 1px 1px #FFF,
+               1px -1px #FFF,
+               -1px 1px #FFF,
+               -1px -1px #FFF;
+}
+
+ul:hover li[data-target="steemit"]:not(:hover) {
+  color: #FFF;
+}
+
+
+.background {
+  height: 100vh;
+  left: -100vw;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  transition: left .4s ease-out;
+  width: 100vw;
+}
+
+.background.active {
+  left: 0;
+}
+
+.background[data-codepen] {
+  background-color: #3AB2FD;
+}
+
+.background[data-github] {
+  background-color: #55BE7F;
+}
+
+.background[data-email] {
+  background-color: #D63E3A;
+}
+
+.background[data-twitter] {
+  background-color: #3F96C0;
+}
+
+.background[data-steemit] {
+  background-color: #00E0AA;
+}
+
+i {
+  color: white;
+  font-size: 400px;
+  position: relative;
+  left: calc(100vw - 350px);
+  top: calc(100vh - 350px);
+  z-index: 99;
+}
