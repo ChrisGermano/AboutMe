@@ -1,150 +1,101 @@
 body {
+  background-color: #000;
+  cursor: crosshair;
+  font-family: 'Comfortaa', sans-serif;
   height: 100vh;
+  overflow: hidden;
   padding: 0;
   margin: 0;
   width: 100vw;
 }
 
-.nameWrapper {
-  position: relative;
-  width: 100vw;
-  z-index: 9;
-}
-
-ul {
-  left: 50vw;
-  list-style: none;
-  padding: 0;
-  position: fixed;
-  top: 40vh;
-  transform: translate(-50%, -50%);
-}
-
-li {
-  display: block;
-  float: left;
-  font-family: 'Comfortaa', cursive;
-  font-size: 8em;
-  font-weight: 800;
-  letter-spacing: 1px;
-  transition: color .1s linear;
-  z-index: 9;
-}
-
-ul:hover li {
+i {
   color: #DDD;
 }
 
-ul:hover li:hover {
-  color: #222;
+i:hover {
+  color: #AAA;
 }
 
-ul:hover .list-link:hover {
-  cursor: pointer;
+.textWrapper {
+  color: #DDD;
+  font-size: 2.4em;
+  margin: 20vh auto 0;
+  max-width: 1300px;
+  text-align: center;
 }
 
-ul:hover li[data-target]:not(:hover) {
-  color: #FFF;
+.linkWrapper {
+  display: flex;
+  margin: 0 auto 50px;
+  max-width: 900px;
 }
 
-ul:hover li[data-target="linkedin"]:hover {
-  color: #2C6AB2;
-  text-shadow: 1px 1px #FFF,
-               1px -1px #FFF,
-               -1px 1px #FFF,
-               -1px -1px #FFF;
+.linkWrapper__link {
+  flex: 1;
+  font-size: 9em;
+  text-align: center;
 }
 
-ul:hover li[data-target="github"]:hover {
-  color: #55BE7F;
-  text-shadow: 1px 1px #FFF,
-               1px -1px #FFF,
-               -1px 1px #FFF,
-               -1px -1px #FFF;
+.skillsWrapper {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 600px;
 }
 
-ul:hover li[data-target="email"]:hover {
-  color: #D63E3A;
-  text-shadow: 1px 1px #FFF,
-               1px -1px #FFF,
-               -1px 1px #FFF,
-               -1px -1px #FFF;
+.skillsWrapper__row {
+  display: flex;
+  width: 100%;
 }
 
-ul:hover li[data-target="twitter"]:hover {
-  color: #3F96C0;
-  text-shadow: 1px 1px #FFF,
-               1px -1px #FFF,
-               -1px 1px #FFF,
-               -1px -1px #FFF;
+.skillsWrapper__row i {
+  flex: 1;
+  font-size: 4em;
+  margin: 30px 0;
 }
 
-ul:hover li[data-target="steemit"]:hover {
-  color: #00E0AA;
-  text-shadow: 1px 1px #FFF,
-               1px -1px #FFF,
-               -1px 1px #FFF,
-               -1px -1px #FFF;
+.skillsWrapper__row i:hover, .textWrapper h1 span:hover {
+  -webkit-animation: threeDee 200ms infinite;
+        animation: threeDee 200ms infinite;
 }
 
-.background {
-  height: 100vh;
-  left: -100vw;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  transition: left .4s ease-out;
-  width: 100vw;
+@keyframes threeDee {
+  0% {
+    text-shadow: 5px 4px #800, -5px -6px #008;
+  }
+  25% {
+    text-shadow: -5px -6px #800, 5px 4px #008;
+  }
+  50% {
+    text-shadow: 5px -4px #800, -8px 4px #008;
+  }
+  75% {
+    text-shadow: -8px -4px #800, -5px -4px #008;
+  }
+  100% {
+    text-shadow: -5px 0 #800, 5px -4px #008;
+  }
 }
 
-.background.active {
-  left: 0;
-}
 
-.background[data-linkedin] {
-  background-color: #2C6AB2;
-}
+@media (max-width: 1024px) {
 
-.background[data-github] {
-  background-color: #55BE7F;
-}
+  .textWrapper {
+    font-size: 1.2em;
+    margin: 20vh auto 60px;
+  }
 
-.background[data-email] {
-  background-color: #D63E3A;
-}
+  .linkWrapper__link {
+    font-size: 4em;
+  }
 
-.background[data-twitter] {
-  background-color: #3F96C0;
-}
+  .skillsWrapper {
+    max-width: 60vw;
+  }
 
-.background[data-steemit] {
-  background-color: #00E0AA;
-}
+  .skillsWrapper__row i {
+    font-size: 2em;
+    margin: 20px auto;
+  }
 
-i {
-  color: white;
-  font-size: 400px;
-  position: relative;
-  left: calc(100vw - 350px);
-  top: calc(100vh - 350px);
-  z-index: 99;
-}
-
-.cursor {
-  background-color: #FFF;
-  border: 2px solid #000;
-  border-radius: 50%;
-  height: 5px;
-  mix-blend-mode: difference;
-  pointer-events: none;
-  position: fixed;
-  transform: translate(-50%,-50%);
-  transition: all .2s ease-out;
-  width: 5px;
-  z-index: 9999;
-}
-
-.cursor-lg {
-  height: 50px;
-  width: 50px;
 }
