@@ -1,8 +1,10 @@
 var camera, scene, renderer;
-var geometry, material, mesh;
 var loader = new THREE.OBJLoader();
+var mLoader = new THREE.MTLLoader();
 
 var light;
+
+var eyeball;
 
 init();
 animate();
@@ -14,30 +16,32 @@ function init() {
 
     scene = new THREE.Scene();
 
-    geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
-    material = new THREE.MeshNormalMaterial();
-
-    mesh = new THREE.Mesh( geometry, material );
-    scene.add( mesh );
-
-    light = new THREE.PointLight(0xFFFFFF);
+    light = new THREE.PointLight(0x444444);
     light.position.x = 0;
     light.position.y = 0;
     light.position.z = 0.4;
     scene.add(light);
 
-    loader.load(
-      './obj/moon.obj',
-      function(object) {
-        scene.add(object);
-      },
-      function(xhr) {
-        console.log((xhr.loaded/xhr.total * 100) + "% loaded");
-      },
-      function(error) {
-        console.log("An error happened");
-      }
-    )
+    var mtlLoader = new THREE.MTLLoader();
+    var url = "../obj/eyeball.mtl";
+    mtlLoader.load( url, function( materials ) {
+
+        materials.preload();
+
+        var objLoader = new THREE.OBJLoader();
+        objLoader.setMaterials( materials );
+        objLoader.load( '../obj/eyeball.obj', function ( object ) {
+
+            eyeball = object;
+
+            eyeball.scale.set(0.2,0.2,0.2);
+            eyeball.position.z = -1;
+
+            scene.add( eyeball );
+
+        }, function() {}, function() {} );
+
+    });
 
     renderer = new THREE.WebGLRenderer( { antialias: true } );
     renderer.setSize( window.innerWidth, window.innerHeight );
@@ -49,9 +53,24 @@ function animate() {
 
     requestAnimationFrame( animate );
 
-    mesh.rotation.x += 0.01;
-    mesh.rotation.y += 0.02;
-
     renderer.render( scene, camera );
 
 }
+
+var plane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0); // it's up to you how you will create THREE.Plane(), there are several methods
+var raycaster = new THREE.Raycaster(); //for reuse
+var mouse = new THREE.Vector2();       //for reuse
+var intersectPoint = new THREE.Vector3();//for reuse
+
+function onmousemove(event) {
+  //get mouse coordinates
+  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+  raycaster.setFromCamera(mouse, camera);//set raycaster
+  raycaster.ray.intersectPlane(plane, intersectPoint); // find the point of intersection
+  if (eyeball)
+    eyeball.lookAt(intersectPoint); // face our arrow to this point
+}
+
+window.addEventListener("mousemove", onmousemove, false);
