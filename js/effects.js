@@ -4,7 +4,9 @@ var mLoader = new THREE.MTLLoader();
 
 var light;
 
-var eyeball;
+var eyeball = null;
+const initEyeScale = 0.2;
+var eyeScale = initEyeScale;
 
 init();
 animate();
@@ -34,7 +36,7 @@ function init() {
 
             eyeball = object;
 
-            eyeball.scale.set(0.2,0.2,0.2);
+            eyeball.scale.set(initEyeScale,initEyeScale,initEyeScale);
             eyeball.position.z = -1;
 
             scene.add( eyeball );
@@ -73,4 +75,20 @@ function onmousemove(event) {
     eyeball.lookAt(intersectPoint); // face our arrow to this point
 }
 
+function onmousedown(event) {
+  if (eyeball !== null) {
+    eyeScale += 0.01;
+    eyeball.scale.set(eyeScale,eyeScale,eyeScale)
+  }
+}
+
+function onmouseup(event) {
+  if (eyeball !== null) {
+    eyeScale = initEyeScale;
+    eyeball.scale.set(initEyeScale,initEyeScale,initEyeScale);
+  }
+}
+
 window.addEventListener("mousemove", onmousemove, false);
+window.addEventListener("mousedown", onmousedown, false);
+window.addEventListener("mouseup", onmouseup, false);
